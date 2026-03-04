@@ -1,0 +1,96 @@
+{
+  "rooms": [
+    {
+      "id": "1",
+      "name": "Deluxe Room",
+      "price": 2000,
+      "description": "Comfortable deluxe room"
+    },
+    {
+      "id": "2",
+      "name": "Suite Room",
+      "price": 4000,
+      "description": "Luxury suite room"
+    },
+    {
+      "id": "3",
+      "name": "Standard Room",
+      "price": 1500,
+      "description": "Affordable room"
+    },
+    {
+      "id": "4",
+      "name": "Family Room",
+      "price": 3000,
+      "description": "Spacious room for families"
+    },
+    {
+      "id": "5",
+      "name": "Single Room",
+      "price": 1000,
+      "description": "Cozy room for solo travelers"
+    },
+    {
+      "id": "6",
+      "name": "Double Room",
+      "price": 2500,
+      "description": "Comfortable room for two"
+    },
+    {
+      "id": "7",
+      "name": "Executive Room",
+      "price": 3500,
+      "description": "Elegant room for business travelers"
+    },
+    {
+      "id": "8",
+      "name": "Presidential Suite",
+      "price": 5000,
+      "description": "Luxurious suite with premium amenities"
+    },
+    {
+      "id": "9",
+      "name": "Honeymoon Suite",
+      "price": 4500,
+      "description": "Romantic suite for couples"
+    },
+    {
+      "id": "10",
+      "name": "Accessible Room",
+      "price": 1800,
+      "description": "Room designed for accessibility needs"
+    },
+    {
+      "id": "11",
+      "name": "Penthouse Suite",
+      "price": 6000,
+      "description": "Exclusive suite with panoramic views"
+    },
+    {
+      "id": "12",
+      "name": "Garden View Room",
+      "price": 2200,
+      "description": "Room with a view of the garden"
+    },
+    {
+      "id": "13",
+      "name": "City View Room",
+      "price": 2500,
+      "description": "Room with a view of the city skyline"
+    },
+    {
+      "id": "14",
+      "name": "Beachfront Room",
+      "price": 3000,
+      "description": "Room with direct access to the beach"
+    },
+    {
+      "id": "15",
+      "name": "Mountain View Room",
+      "price": 2800,
+      "description": "Room with a view of the mountains"
+    }
+  ],
+  "bookings": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}
