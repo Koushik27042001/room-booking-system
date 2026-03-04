@@ -5,12 +5,9 @@ import Dashboard from "./pages/Dashboard";
 import RoomDetails from "./pages/RoomDetails";
 import MyBookings from "./pages/MyBookings";
 import Home from "./pages/home";
-
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
-
 function App() {
-
   return (
     <AuthProvider>
       <BrowserRouter>
