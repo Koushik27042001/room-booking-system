@@ -6,6 +6,7 @@ import RoomDetails from "./pages/RoomDetails";
 import MyBookings from "./pages/MyBookings";
 import Home from "./pages/home";
 import BookingConfirmation from "./pages/BookingConfirmation";
+import AdminRooms from "./pages/AdminRooms";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 function App() {
@@ -55,6 +56,15 @@ function App() {
             element={
               <ProtectedRoute>
                 <BookingConfirmation />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/admin/rooms"
+            element={
+              <ProtectedRoute allowedRoles={["admin"]}>
+                <AdminRooms />
               </ProtectedRoute>
             }
           />

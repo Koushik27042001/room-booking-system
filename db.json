@@ -2,93 +2,101 @@
   "rooms": [
     {
       "id": "1",
-      "name": "Deluxe Room",
-      "price": 2000,
-      "description": "Comfortable deluxe room"
+      "name": "Ocean Suite",
+      "price": 320,
+      "description": "Spacious ocean-facing suite with private balcony and premium service.",
+      "beds": 2,
+      "baths": 2,
+      "tag": "Best Seller",
+      "imageKey": "room1",
+      "amenities": ["Ocean View", "Balcony", "Mini Bar", "WiFi"]
     },
     {
       "id": "2",
-      "name": "Suite Room",
-      "price": 4000,
-      "description": "Luxury suite room"
+      "name": "Garden Villa",
+      "price": 280,
+      "description": "Serene villa surrounded by lush greenery and private seating area.",
+      "beds": 1,
+      "baths": 1,
+      "tag": "New",
+      "imageKey": "room2",
+      "amenities": ["Garden View", "Private Patio", "King Bed", "WiFi"]
     },
     {
       "id": "3",
-      "name": "Standard Room",
-      "price": 1500,
-      "description": "Affordable room"
+      "name": "Royal Penthouse",
+      "price": 580,
+      "description": "Top-tier penthouse with panoramic views and luxury interiors.",
+      "beds": 3,
+      "baths": 3,
+      "tag": "Luxury",
+      "imageKey": "room3",
+      "amenities": ["Rooftop Lounge", "Butler Service", "Jacuzzi", "WiFi"]
     },
     {
       "id": "4",
-      "name": "Family Room",
-      "price": 3000,
-      "description": "Spacious room for families"
+      "name": "Forest Cabin",
+      "price": 210,
+      "description": "Cozy retreat in nature with warm interiors and peaceful ambience.",
+      "beds": 1,
+      "baths": 1,
+      "tag": "Cozy",
+      "imageKey": "room4",
+      "amenities": ["Forest View", "Fireplace", "Tea Station", "WiFi"]
     },
     {
       "id": "5",
-      "name": "Single Room",
-      "price": 1000,
-      "description": "Cozy room for solo travelers"
+      "name": "Poolside Bungalow",
+      "price": 350,
+      "description": "Modern bungalow steps from the pool with spacious family setup.",
+      "beds": 2,
+      "baths": 2,
+      "tag": "Popular",
+      "imageKey": "room5",
+      "amenities": ["Pool Access", "Outdoor Deck", "Lounge Area", "WiFi"]
     },
     {
       "id": "6",
-      "name": "Double Room",
-      "price": 2500,
-      "description": "Comfortable room for two"
+      "name": "Mountain Retreat",
+      "price": 260,
+      "description": "Calm mountain-facing suite ideal for scenic and quiet stays.",
+      "beds": 2,
+      "baths": 1,
+      "tag": "Scenic",
+      "imageKey": "room6",
+      "amenities": ["Mountain View", "Workspace", "Breakfast Included", "WiFi"]
+    }
+  ],
+  "blogs": [
+    {
+      "id": "1",
+      "category": "Travel Tips",
+      "date": "Jan 12, 2025",
+      "readTime": "5 min read",
+      "title": "10 Things to Do Before Your Resort Stay",
+      "excerpt": "Maximize every moment of your getaway with our insider checklist from packing smart to securing the best table at our signature restaurant.",
+      "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80",
+      "link": "https://example.com/blog/pre-stay-checklist"
     },
     {
-      "id": "7",
-      "name": "Executive Room",
-      "price": 3500,
-      "description": "Elegant room for business travelers"
+      "id": "2",
+      "category": "Lifestyle",
+      "date": "Feb 04, 2025",
+      "readTime": "4 min read",
+      "title": "How Wellness Amenities Transform Your Vacation",
+      "excerpt": "Spa therapies, sunrise yoga on the deck, and farm-to-table dining explain why holistic resorts are redefining the future of travel.",
+      "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=900&q=80",
+      "link": "https://example.com/blog/wellness-amenities"
     },
     {
-      "id": "8",
-      "name": "Presidential Suite",
-      "price": 5000,
-      "description": "Luxurious suite with premium amenities"
-    },
-    {
-      "id": "9",
-      "name": "Honeymoon Suite",
-      "price": 4500,
-      "description": "Romantic suite for couples"
-    },
-    {
-      "id": "10",
-      "name": "Accessible Room",
-      "price": 1800,
-      "description": "Room designed for accessibility needs"
-    },
-    {
-      "id": "11",
-      "name": "Penthouse Suite",
-      "price": 6000,
-      "description": "Exclusive suite with panoramic views"
-    },
-    {
-      "id": "12",
-      "name": "Garden View Room",
-      "price": 2200,
-      "description": "Room with a view of the garden"
-    },
-    {
-      "id": "13",
-      "name": "City View Room",
-      "price": 2500,
-      "description": "Room with a view of the city skyline"
-    },
-    {
-      "id": "14",
-      "name": "Beachfront Room",
-      "price": 3000,
-      "description": "Room with direct access to the beach"
-    },
-    {
-      "id": "15",
-      "name": "Mountain View Room",
-      "price": 2800,
-      "description": "Room with a view of the mountains"
+      "id": "3",
+      "category": "Destinations",
+      "date": "Mar 18, 2025",
+      "readTime": "6 min read",
+      "title": "Hidden Gems: Resorts Off the Beaten Path",
+      "excerpt": "Escape the crowds and discover secluded paradises that deliver world-class comfort without the tourist rush.",
+      "image": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=900&q=80",
+      "link": "https://example.com/blog/hidden-gems-resorts"
     }
   ],
   "bookings": [
@@ -106,7 +114,7 @@
     {
       "id": "e11b",
       "roomId": "5",
-      "name": "tanmay ",
+      "name": "tanmay",
       "phone": "8467898787",
       "email": "tanmay.benda@gmail.com",
       "startDate": "2026-03-18",

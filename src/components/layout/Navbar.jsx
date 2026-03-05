@@ -43,6 +43,16 @@ function Navbar(){
           >
             My Bookings
           </Button>
+          {user?.role === "admin" && (
+            <Button
+              component={Link}
+              to="/admin/rooms"
+              color="inherit"
+              variant={location.pathname === "/admin/rooms" ? "outlined" : "text"}
+            >
+              Add Rooms
+            </Button>
+          )}
           {!user ? (
             <Button component={Link} to="/login" variant="contained" color="warning">
               Login

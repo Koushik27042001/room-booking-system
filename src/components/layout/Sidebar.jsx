@@ -24,6 +24,12 @@ function Sidebar(){
           </Link>
         </li>
 
+        {user?.role === "admin" && (
+          <li>
+            <Link to="/admin/rooms">Add Rooms</Link>
+          </li>
+        )}
+
       </ul>
 
     </div>
