@@ -1,131 +1,124 @@
 {
-  "rooms": [
-    {
-      "id": "1",
-      "name": "Ocean Suite",
-      "price": 320,
-      "description": "Spacious ocean-facing suite with private balcony and premium service.",
-      "beds": 2,
-      "baths": 2,
-      "tag": "Best Seller",
-      "imageKey": "room1",
-      "amenities": ["Ocean View", "Balcony", "Mini Bar", "WiFi"]
-    },
-    {
-      "id": "2",
-      "name": "Garden Villa",
-      "price": 280,
-      "description": "Serene villa surrounded by lush greenery and private seating area.",
-      "beds": 1,
-      "baths": 1,
-      "tag": "New",
-      "imageKey": "room2",
-      "amenities": ["Garden View", "Private Patio", "King Bed", "WiFi"]
-    },
-    {
-      "id": "3",
-      "name": "Royal Penthouse",
-      "price": 580,
-      "description": "Top-tier penthouse with panoramic views and luxury interiors.",
-      "beds": 3,
-      "baths": 3,
-      "tag": "Luxury",
-      "imageKey": "room3",
-      "amenities": ["Rooftop Lounge", "Butler Service", "Jacuzzi", "WiFi"]
-    },
-    {
-      "id": "4",
-      "name": "Forest Cabin",
-      "price": 210,
-      "description": "Cozy retreat in nature with warm interiors and peaceful ambience.",
-      "beds": 1,
-      "baths": 1,
-      "tag": "Cozy",
-      "imageKey": "room4",
-      "amenities": ["Forest View", "Fireplace", "Tea Station", "WiFi"]
-    },
-    {
-      "id": "5",
-      "name": "Poolside Bungalow",
-      "price": 350,
-      "description": "Modern bungalow steps from the pool with spacious family setup.",
-      "beds": 2,
-      "baths": 2,
-      "tag": "Popular",
-      "imageKey": "room5",
-      "amenities": ["Pool Access", "Outdoor Deck", "Lounge Area", "WiFi"]
-    },
-    {
-      "id": "6",
-      "name": "Mountain Retreat",
-      "price": 260,
-      "description": "Calm mountain-facing suite ideal for scenic and quiet stays.",
-      "beds": 2,
-      "baths": 1,
-      "tag": "Scenic",
-      "imageKey": "room6",
-      "amenities": ["Mountain View", "Workspace", "Breakfast Included", "WiFi"]
-    }
-  ],
-  "blogs": [
-    {
-      "id": "1",
-      "category": "Travel Tips",
-      "date": "Jan 12, 2025",
-      "readTime": "5 min read",
-      "title": "10 Things to Do Before Your Resort Stay",
-      "excerpt": "Maximize every moment of your getaway with our insider checklist from packing smart to securing the best table at our signature restaurant.",
-      "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80",
-      "link": "https://example.com/blog/pre-stay-checklist"
-    },
-    {
-      "id": "2",
-      "category": "Lifestyle",
-      "date": "Feb 04, 2025",
-      "readTime": "4 min read",
-      "title": "How Wellness Amenities Transform Your Vacation",
-      "excerpt": "Spa therapies, sunrise yoga on the deck, and farm-to-table dining explain why holistic resorts are redefining the future of travel.",
-      "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=900&q=80",
-      "link": "https://example.com/blog/wellness-amenities"
-    },
-    {
-      "id": "3",
-      "category": "Destinations",
-      "date": "Mar 18, 2025",
-      "readTime": "6 min read",
-      "title": "Hidden Gems: Resorts Off the Beaten Path",
-      "excerpt": "Escape the crowds and discover secluded paradises that deliver world-class comfort without the tourist rush.",
-      "image": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=900&q=80",
-      "link": "https://example.com/blog/hidden-gems-resorts"
-    }
-  ],
-<<<<<<< HEAD
-  "bookings": [
-    {
-      "id": "6cc4",
-      "roomId": "2",
-      "name": "koushik chakraborty",
-      "phone": "8337899494",
-      "email": "koushikbenda@gmail.com",
-      "startDate": "2026-03-18",
-      "endDate": "2026-03-20",
-      "bookedBy": "user",
-      "status": "active"
-    },
-    {
-      "id": "e11b",
-      "roomId": "5",
-      "name": "tanmay",
-      "phone": "8467898787",
-      "email": "tanmay.benda@gmail.com",
-      "startDate": "2026-03-18",
-      "endDate": "2026-03-22",
-      "bookedBy": "user",
-      "status": "active"
-    }
-  ],
-=======
-  "bookings": [],
->>>>>>> c33b2efcd590f56f86589c07b66ab7df98b499ec
-  "$schema": "./node_modules/json-server/schema.json"
+    "rooms": [{
+            "id": "1",
+            "name": "Ocean Suite",
+            "price": 320,
+            "description": "Spacious ocean-facing suite with private balcony and premium service.",
+            "beds": 2,
+            "baths": 2,
+            "tag": "Best Seller",
+            "imageKey": "room1",
+            "amenities": ["Ocean View", "Balcony", "Mini Bar", "WiFi"]
+        },
+        {
+            "id": "2",
+            "name": "Garden Villa",
+            "price": 280,
+            "description": "Serene villa surrounded by lush greenery and private seating area.",
+            "beds": 1,
+            "baths": 1,
+            "tag": "New",
+            "imageKey": "room2",
+            "amenities": ["Garden View", "Private Patio", "King Bed", "WiFi"]
+        },
+        {
+            "id": "3",
+            "name": "Royal Penthouse",
+            "price": 580,
+            "description": "Top-tier penthouse with panoramic views and luxury interiors.",
+            "beds": 3,
+            "baths": 3,
+            "tag": "Luxury",
+            "imageKey": "room3",
+            "amenities": ["Rooftop Lounge", "Butler Service", "Jacuzzi", "WiFi"]
+        },
+        {
+            "id": "4",
+            "name": "Forest Cabin",
+            "price": 210,
+            "description": "Cozy retreat in nature with warm interiors and peaceful ambience.",
+            "beds": 1,
+            "baths": 1,
+            "tag": "Cozy",
+            "imageKey": "room4",
+            "amenities": ["Forest View", "Fireplace", "Tea Station", "WiFi"]
+        },
+        {
+            "id": "5",
+            "name": "Poolside Bungalow",
+            "price": 350,
+            "description": "Modern bungalow steps from the pool with spacious family setup.",
+            "beds": 2,
+            "baths": 2,
+            "tag": "Popular",
+            "imageKey": "room5",
+            "amenities": ["Pool Access", "Outdoor Deck", "Lounge Area", "WiFi"]
+        },
+        {
+            "id": "6",
+            "name": "Mountain Retreat",
+            "price": 260,
+            "description": "Calm mountain-facing suite ideal for scenic and quiet stays.",
+            "beds": 2,
+            "baths": 1,
+            "tag": "Scenic",
+            "imageKey": "room6",
+            "amenities": ["Mountain View", "Workspace", "Breakfast Included", "WiFi"]
+        }
+    ],
+    "blogs": [{
+            "id": "1",
+            "category": "Travel Tips",
+            "date": "Jan 12, 2025",
+            "readTime": "5 min read",
+            "title": "10 Things to Do Before Your Resort Stay",
+            "excerpt": "Maximize every moment of your getaway with our insider checklist from packing smart to securing the best table at our signature restaurant.",
+            "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80",
+            "link": "https://example.com/blog/pre-stay-checklist"
+        },
+        {
+            "id": "2",
+            "category": "Lifestyle",
+            "date": "Feb 04, 2025",
+            "readTime": "4 min read",
+            "title": "How Wellness Amenities Transform Your Vacation",
+            "excerpt": "Spa therapies, sunrise yoga on the deck, and farm-to-table dining explain why holistic resorts are redefining the future of travel.",
+            "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=900&q=80",
+            "link": "https://example.com/blog/wellness-amenities"
+        },
+        {
+            "id": "3",
+            "category": "Destinations",
+            "date": "Mar 18, 2025",
+            "readTime": "6 min read",
+            "title": "Hidden Gems: Resorts Off the Beaten Path",
+            "excerpt": "Escape the crowds and discover secluded paradises that deliver world-class comfort without the tourist rush.",
+            "image": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=900&q=80",
+            "link": "https://example.com/blog/hidden-gems-resorts"
+        }
+    ],
+    "bookings": [{
+            "id": "6cc4",
+            "roomId": "2",
+            "name": "koushik chakraborty",
+            "phone": "8337899494",
+            "email": "koushikbenda@gmail.com",
+            "startDate": "2026-03-18",
+            "endDate": "2026-03-20",
+            "bookedBy": "user",
+            "status": "active"
+        },
+        {
+            "id": "e11b",
+            "roomId": "5",
+            "name": "tanmay",
+            "phone": "8467898787",
+            "email": "tanmay.benda@gmail.com",
+            "startDate": "2026-03-18",
+            "endDate": "2026-03-22",
+            "bookedBy": "user",
+            "status": "active"
+        }
+    ],
+    "$schema": "./node_modules/json-server/schema.json"
 }
