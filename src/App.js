@@ -1,17 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 
-<<<<<<< HEAD
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-import RoomDetails from "./pages/RoomDetails";
-import MyBookings from "./pages/MyBookings";
-import Home from "./pages/home";
-import BookingConfirmation from "./pages/BookingConfirmation";
-import AdminRooms from "./pages/AdminRooms";
-=======
 import Loader from "./components/ui/Loader";
->>>>>>> c33b2efcd590f56f86589c07b66ab7df98b499ec
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 
@@ -22,13 +12,13 @@ const RoomDetails = lazy(() => import("./pages/RoomDetails"));
 const MyBookings = lazy(() => import("./pages/MyBookings"));
 const Home = lazy(() => import("./pages/home"));
 const BookingConfirmation = lazy(() => import("./pages/BookingConfirmation"));
+const AdminRooms = lazy(() => import("./pages/AdminRooms"));
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
 
-        {/* Suspense Loader */}
         <Suspense fallback={<Loader />}>
 
           <Routes>
@@ -79,23 +69,20 @@ function App() {
               }
             />
 
+            {/* Admin Rooms */}
+            <Route
+              path="/admin/rooms"
+              element={
+                <ProtectedRoute allowedRoles={["admin"]}>
+                  <AdminRooms />
+                </ProtectedRoute>
+              }
+            />
+
           </Routes>
 
         </Suspense>
 
-<<<<<<< HEAD
-          <Route
-            path="/admin/rooms"
-            element={
-              <ProtectedRoute allowedRoles={["admin"]}>
-                <AdminRooms />
-              </ProtectedRoute>
-            }
-          />
-
-        </Routes>
-=======
->>>>>>> c33b2efcd590f56f86589c07b66ab7df98b499ec
       </BrowserRouter>
     </AuthProvider>
   );
