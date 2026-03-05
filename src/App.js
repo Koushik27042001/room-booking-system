@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import RoomDetails from "./pages/RoomDetails";
 import MyBookings from "./pages/MyBookings";
 import Home from "./pages/home";
+import BookingConfirmation from "./pages/BookingConfirmation";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 function App() {
@@ -45,6 +46,15 @@ function App() {
             element={
               <ProtectedRoute>
                 <MyBookings />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/booking-confirmation/:bookingId"
+            element={
+              <ProtectedRoute>
+                <BookingConfirmation />
               </ProtectedRoute>
             }
           />

@@ -1,13 +1,24 @@
 import { useEffect, useState } from "react";
-import { Button, TextField, Paper } from "@mui/material";
-import { createBooking, getRoomById } from "../services/api";
-import { useParams } from "react-router-dom";
+import { Alert, Button, Paper, TextField } from "@mui/material";
+import { createBooking, getBookings, getRoomById } from "../services/api";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+
+function hasDateOverlap(newStart, newEnd, existingStart, existingEnd) {
+  const start = new Date(newStart);
+  const end = new Date(newEnd);
+  const bookedStart = new Date(existingStart);
+  const bookedEnd = new Date(existingEnd);
+
+  return start <= bookedEnd && end >= bookedStart;
+}
 
 function RoomDetails() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { user } = useAuth();
   const [room, setRoom] = useState(null);
+  const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const [name, setName] = useState("");
@@ -18,27 +29,81 @@ function RoomDetails() {
   const [endDate, setEndDate] = useState("");
 
   const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("success");
+  const [availabilityMessage, setAvailabilityMessage] = useState("");
+  const [availabilityType, setAvailabilityType] = useState("info");
 
   useEffect(() => {
-    getRoomById(id)
-      .then((res) => {
-        setRoom(res.data);
+    Promise.all([getRoomById(id), getBookings()])
+      .then(([roomRes, bookingsRes]) => {
+        setRoom(roomRes.data);
+        setBookings(bookingsRes.data);
         setLoading(false);
       })
       .catch(() => {
         setMessage("Failed to load room details");
+        setMessageType("error");
         setLoading(false);
       });
   }, [id]);
 
+  useEffect(() => {
+    if (!startDate || !endDate) {
+      setAvailabilityMessage("");
+      return;
+    }
+
+    if (new Date(startDate) > new Date(endDate)) {
+      setAvailabilityMessage("End date should be after start date.");
+      setAvailabilityType("warning");
+      return;
+    }
+
+    const conflictingBooking = bookings.find(
+      (booking) =>
+        String(booking.roomId) === String(id) &&
+        booking.status !== "completed" &&
+        hasDateOverlap(startDate, endDate, booking.startDate, booking.endDate)
+    );
+
+    if (conflictingBooking) {
+      setAvailabilityMessage("Selected dates are not available for this room.");
+      setAvailabilityType("error");
+      return;
+    }
+
+    setAvailabilityMessage("Selected dates are available.");
+    setAvailabilityType("success");
+  }, [bookings, endDate, id, startDate]);
+
   const handleBooking = async () => {
     if (!name || !phone || !startDate || !endDate) {
       setMessage("Please fill all required fields");
+      setMessageType("error");
+      return;
+    }
+
+    if (new Date(startDate) > new Date(endDate)) {
+      setMessage("End date should be after start date.");
+      setMessageType("error");
+      return;
+    }
+
+    const conflictingBooking = bookings.find(
+      (booking) =>
+        String(booking.roomId) === String(id) &&
+        booking.status !== "completed" &&
+        hasDateOverlap(startDate, endDate, booking.startDate, booking.endDate)
+    );
+
+    if (conflictingBooking) {
+      setMessage("This room is not available for selected dates.");
+      setMessageType("error");
       return;
     }
 
     try {
-      await createBooking({
+      const response = await createBooking({
         roomId: id,
         name: name,
         phone: phone,
@@ -49,9 +114,15 @@ function RoomDetails() {
         status: "active",
       });
 
-      setMessage("Booking confirmed!");
+      const createdBooking = response.data;
+      setBookings((prev) => [...prev, createdBooking]);
+
+      setMessage("Booking confirmed successfully.");
+      setMessageType("success");
+      navigate(`/booking-confirmation/${createdBooking.id}`);
     } catch {
       setMessage("Booking failed");
+      setMessageType("error");
     }
   };
 
@@ -73,6 +144,12 @@ function RoomDetails() {
         <h2 className="mb-4 text-xl font-bold">
           Room Booking Details
         </h2>
+
+        {availabilityMessage && (
+          <Alert severity={availabilityType} className="mb-4">
+            {availabilityMessage}
+          </Alert>
+        )}
 
         <div className="space-y-4">
 
@@ -123,9 +200,11 @@ function RoomDetails() {
             Confirm Booking
           </Button>
 
-          <p className="text-green-600">
-            {message}
-          </p>
+          {message && (
+            <Alert severity={messageType}>
+              {message}
+            </Alert>
+          )}
 
         </div>
 
