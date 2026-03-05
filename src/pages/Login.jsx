@@ -60,7 +60,7 @@ function Login() {
               <span className="text-lg font-black text-white">R</span>
             </div>
             <span className="text-xl font-extrabold tracking-tight text-white">
-              Resort<span className="text-amber-400">Luxe</span>
+              Demo<span className="text-amber-400">Luxe</span>
             </span>
           </div>
 

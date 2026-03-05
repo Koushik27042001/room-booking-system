@@ -14,9 +14,11 @@ function hasDateOverlap(newStart, newEnd, existingStart, existingEnd) {
 }
 
 function RoomDetails() {
+
   const { id } = useParams();
   const navigate = useNavigate();
   const { user } = useAuth();
+
   const [room, setRoom] = useState(null);
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -28,8 +30,11 @@ function RoomDetails() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
+  const [errors, setErrors] = useState({});
+
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("success");
+
   const [availabilityMessage, setAvailabilityMessage] = useState("");
   const [availabilityType, setAvailabilityType] = useState("info");
 
@@ -48,6 +53,7 @@ function RoomDetails() {
   }, [id]);
 
   useEffect(() => {
+
     if (!startDate || !endDate) {
       setAvailabilityMessage("");
       return;
@@ -74,20 +80,53 @@ function RoomDetails() {
 
     setAvailabilityMessage("Selected dates are available.");
     setAvailabilityType("success");
+
   }, [bookings, endDate, id, startDate]);
 
-  const handleBooking = async () => {
-    if (!name || !phone || !startDate || !endDate) {
-      setMessage("Please fill all required fields");
-      setMessageType("error");
-      return;
+
+
+  const validateForm = () => {
+
+    let tempErrors = {};
+
+    if (!name.trim()) {
+      tempErrors.name = "Name is required";
     }
 
-    if (new Date(startDate) > new Date(endDate)) {
-      setMessage("End date should be after start date.");
-      setMessageType("error");
-      return;
+    if (!phone) {
+      tempErrors.phone = "Phone number is required";
+    } 
+    else if (!/^[0-9]{10}$/.test(phone)) {
+      tempErrors.phone = "Phone must be 10 digits";
     }
+
+    if (email && !/^\S+@\S+\.\S+$/.test(email)) {
+      tempErrors.email = "Invalid email format";
+    }
+
+    if (!startDate) {
+      tempErrors.startDate = "Start date required";
+    }
+
+    if (!endDate) {
+      tempErrors.endDate = "End date required";
+    }
+
+    if (startDate && endDate && new Date(startDate) > new Date(endDate)) {
+      tempErrors.endDate = "End date must be after start date";
+    }
+
+    setErrors(tempErrors);
+
+    return Object.keys(tempErrors).length === 0;
+
+  };
+
+
+
+  const handleBooking = async () => {
+
+    if (!validateForm()) return;
 
     const conflictingBooking = bookings.find(
       (booking) =>
@@ -103,32 +142,42 @@ function RoomDetails() {
     }
 
     try {
+
       const response = await createBooking({
         roomId: id,
-        name: name,
-        phone: phone,
-        email: email,
-        startDate: startDate,
-        endDate: endDate,
+        name,
+        phone,
+        email,
+        startDate,
+        endDate,
         bookedBy: user.username,
         status: "active",
       });
 
       const createdBooking = response.data;
+
       setBookings((prev) => [...prev, createdBooking]);
 
       setMessage("Booking confirmed successfully.");
       setMessageType("success");
+
       navigate(`/booking-confirmation/${createdBooking.id}`);
+
     } catch {
+
       setMessage("Booking failed");
       setMessageType("error");
+
     }
   };
 
+
+
   return (
     <div className="flex justify-center mt-20">
+
       <Paper className="p-6 w-96">
+
         {loading ? (
           <p className="mb-4 text-gray-600">Loading room details...</p>
         ) : room ? (
@@ -158,6 +207,8 @@ function RoomDetails() {
             fullWidth
             value={name}
             onChange={(e) => setName(e.target.value)}
+            error={!!errors.name}
+            helperText={errors.name}
           />
 
           <TextField
@@ -165,6 +216,8 @@ function RoomDetails() {
             fullWidth
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
+            error={!!errors.phone}
+            helperText={errors.phone}
           />
 
           <TextField
@@ -172,6 +225,8 @@ function RoomDetails() {
             fullWidth
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            error={!!errors.email}
+            helperText={errors.email}
           />
 
           <TextField
@@ -181,6 +236,8 @@ function RoomDetails() {
             fullWidth
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
+            error={!!errors.startDate}
+            helperText={errors.startDate}
           />
 
           <TextField
@@ -190,12 +247,15 @@ function RoomDetails() {
             fullWidth
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
+            error={!!errors.endDate}
+            helperText={errors.endDate}
           />
 
           <Button
             variant="contained"
             fullWidth
             onClick={handleBooking}
+            disabled={availabilityType === "error"}
           >
             Confirm Booking
           </Button>

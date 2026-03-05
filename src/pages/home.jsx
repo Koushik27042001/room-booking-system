@@ -166,7 +166,7 @@ export default function Home() {
               Rated #1 Luxury Resort 2025
             </div>
             <h1 className="mb-3 text-4xl font-extrabold leading-tight text-white md:text-5xl">
-              Welcome to <span className="text-amber-400">ResortLuxe</span>
+              Welcome to <span className="text-amber-400">DemoLuxe</span>
             </h1>
             <p className="max-w-lg mb-6 text-base leading-relaxed text-gray-300 md:text-lg">
               Discover world-class suites, breathtaking views, and unparalleled service.

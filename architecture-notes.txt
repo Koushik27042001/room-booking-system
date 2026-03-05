@@ -1,0 +1,90 @@
+1. What happens if the API fails?
+
+If an API request fails, the application catches the error using try/catch blocks or .catch() in promises.
+
+When this happens:
+
+A user-friendly error message is displayed.
+
+The UI prevents further actions that depend on that data.
+
+The user can retry the action if needed.
+
+Example UI behavior:
+
+Failed to load rooms, Please try again.
+
+Booking failed Please try again.
+
+This ensures the application does not crash and handles failures gracefully.
+
+
+2. How are loading states handled?
+
+Loading states are handled using React useState.
+
+When an API request starts:
+
+loading = true
+
+A Loader component is displayed.
+
+When the request finishes:
+
+loading = false
+
+The actual content is rendered.
+const [loading, setLoading] = useState(true);
+If loading === true, the UI shows a spinner or animated loader instead of empty content.
+
+This improves user experience and prevents confusion.
+
+
+3. How would you scale this UI for 1000+ rooms?
+
+If the number of rooms increases significantly, the following strategies can be used:
+
+Pagination
+
+Load rooms in smaller batches (e.g., 20 rooms per page).
+
+Infinite Scrolling
+
+Load additional rooms only when the user scrolls.
+
+Virtualization
+
+Use libraries such as:
+
+react-window
+
+react-virtualized
+
+This renders only the visible items, which improves performance.
+
+API Optimization
+
+Instead of fetching all rooms at once:
+
+GET /rooms?page=1&limit=20
+
+This reduces network load and rendering time.
+
+
+4. Why did you choose your state management approach?
+
+The application uses React Context API + useState.
+
+Reasons:
+
+Keeps authentication state global
+
+Avoids prop drilling
+
+Simple and lightweight
+
+Suitable for small to medium applications
+
+Since the project does not require complex global state logic, Context API is sufficient.
+
+For larger applications, a library like Redux or Zustand could be used.

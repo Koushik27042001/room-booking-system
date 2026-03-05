@@ -99,6 +99,7 @@
       "link": "https://example.com/blog/hidden-gems-resorts"
     }
   ],
+<<<<<<< HEAD
   "bookings": [
     {
       "id": "6cc4",
@@ -123,5 +124,8 @@
       "status": "active"
     }
   ],
+=======
+  "bookings": [],
+>>>>>>> c33b2efcd590f56f86589c07b66ab7df98b499ec
   "$schema": "./node_modules/json-server/schema.json"
 }
