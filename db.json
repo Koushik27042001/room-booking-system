@@ -91,29 +91,6 @@
       "description": "Room with a view of the mountains"
     }
   ],
-  "bookings": [
-    {
-      "id": "6cc4",
-      "roomId": "2",
-      "name": "koushik chakraborty",
-      "phone": "8337899494",
-      "email": "koushikbenda@gmail.com",
-      "startDate": "2026-03-18",
-      "endDate": "2026-03-20",
-      "bookedBy": "user",
-      "status": "active"
-    },
-    {
-      "id": "e11b",
-      "roomId": "5",
-      "name": "tanmay ",
-      "phone": "8467898787",
-      "email": "tanmay.benda@gmail.com",
-      "startDate": "2026-03-18",
-      "endDate": "2026-03-22",
-      "bookedBy": "user",
-      "status": "active"
-    }
-  ],
+  "bookings": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

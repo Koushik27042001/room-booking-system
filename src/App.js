@@ -1,65 +1,78 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Suspense, lazy } from "react";
 
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-import RoomDetails from "./pages/RoomDetails";
-import MyBookings from "./pages/MyBookings";
-import Home from "./pages/home";
-import BookingConfirmation from "./pages/BookingConfirmation";
+import Loader from "./components/ui/Loader";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
+
+/* Lazy Loading Pages */
+const Login = lazy(() => import("./pages/Login"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const RoomDetails = lazy(() => import("./pages/RoomDetails"));
+const MyBookings = lazy(() => import("./pages/MyBookings"));
+const Home = lazy(() => import("./pages/home"));
+const BookingConfirmation = lazy(() => import("./pages/BookingConfirmation"));
+
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <Routes>
 
-          {/* Home Page */}
-          <Route path="/" element={<Home />} />
+        {/* Suspense Loader */}
+        <Suspense fallback={<Loader />}>
 
-          {/* Login Page */}
-          <Route path="/login" element={<Login />} />
+          <Routes>
 
-          {/* Dashboard */}
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
+            {/* Home */}
+            <Route path="/" element={<Home />} />
 
-          {/* Room Details */}
-          <Route
-            path="/room/:id"
-            element={
-              <ProtectedRoute allowedRoles={["user"]}>
-                <RoomDetails />
-              </ProtectedRoute>
-            }
-          />
+            {/* Login */}
+            <Route path="/login" element={<Login />} />
 
-          {/* My Bookings */}
-          <Route
-            path="/my-bookings"
-            element={
-              <ProtectedRoute>
-                <MyBookings />
-              </ProtectedRoute>
-            }
-          />
+            {/* Dashboard */}
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
 
-          <Route
-            path="/booking-confirmation/:bookingId"
-            element={
-              <ProtectedRoute>
-                <BookingConfirmation />
-              </ProtectedRoute>
-            }
-          />
+            {/* Room Details */}
+            <Route
+              path="/room/:id"
+              element={
+                <ProtectedRoute allowedRoles={["user"]}>
+                  <RoomDetails />
+                </ProtectedRoute>
+              }
+            />
 
-        </Routes>
+            {/* My Bookings */}
+            <Route
+              path="/my-bookings"
+              element={
+                <ProtectedRoute>
+                  <MyBookings />
+                </ProtectedRoute>
+              }
+            />
+
+            {/* Booking Confirmation */}
+            <Route
+              path="/booking-confirmation/:bookingId"
+              element={
+                <ProtectedRoute>
+                  <BookingConfirmation />
+                </ProtectedRoute>
+              }
+            />
+
+          </Routes>
+
+        </Suspense>
+
       </BrowserRouter>
     </AuthProvider>
   );
