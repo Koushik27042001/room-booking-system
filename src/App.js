@@ -4,8 +4,6 @@ import { Suspense, lazy } from "react";
 import Loader from "./components/ui/Loader";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
-
-/* Lazy Loading Pages */
 const Login = lazy(() => import("./pages/Login"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const RoomDetails = lazy(() => import("./pages/RoomDetails"));
@@ -23,7 +21,7 @@ function App() {
 
           <Routes>
 
-            {/* Home */}
+          
             <Route path="/" element={<Home />} />
 
             {/* Login */}
