@@ -14,12 +14,13 @@ A React-based room booking dashboard with role-based access, room browsing, book
 - Public home page with resort-style landing UI
 - Login with role-based demo users (`admin`, `user`)
 - Protected routes for authenticated users
-- Room listing dashboard
+- Room listing dashboard with admin-only room creation
 - Room details and booking form
 - My Bookings page:
   - `user`: sees and cancels own bookings
   - `admin`: sees all bookings, can mark complete or remove
 - Auth persistence via `localStorage`
+- Admin can add new rooms (name, price, description)
 
 ## Demo Credentials
 - User: `user` / `user123`
@@ -109,6 +110,7 @@ Base URL: `http://localhost:5000`
 
 - `GET /rooms`
 - `GET /rooms/:id`
+- `POST /rooms`
 - `GET /bookings`
 - `POST /bookings`
 - `PATCH /bookings/:id`

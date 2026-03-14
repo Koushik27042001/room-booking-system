@@ -275,3 +275,4 @@ function RoomDetails() {
 }
 
 export default RoomDetails;
+
