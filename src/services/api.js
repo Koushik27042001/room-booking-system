@@ -13,3 +13,5 @@ export const getBookingById = (id) => API.get(`/bookings/${id}`);
 export const createBooking = (data) => API.post("/bookings", data);
 export const updateBooking = (id, data) => API.patch(`/bookings/${id}`, data);
 export const deleteBooking = (id) => API.delete(`/bookings/${id}`);
+
+export const getBlogs = () => API.get("/blogs");

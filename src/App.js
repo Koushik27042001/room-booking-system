@@ -4,26 +4,24 @@ import { Suspense, lazy } from "react";
 import Loader from "./components/ui/Loader";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
-
-/* Lazy Loading Pages */
 const Login = lazy(() => import("./pages/Login"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const RoomDetails = lazy(() => import("./pages/RoomDetails"));
 const MyBookings = lazy(() => import("./pages/MyBookings"));
 const Home = lazy(() => import("./pages/home"));
 const BookingConfirmation = lazy(() => import("./pages/BookingConfirmation"));
+const AdminRooms = lazy(() => import("./pages/AdminRooms"));
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
 
-        {/* Suspense Loader */}
         <Suspense fallback={<Loader />}>
 
           <Routes>
 
-            {/* Home */}
+          
             <Route path="/" element={<Home />} />
 
             {/* Login */}
@@ -65,6 +63,16 @@ function App() {
               element={
                 <ProtectedRoute>
                   <BookingConfirmation />
+                </ProtectedRoute>
+              }
+            />
+
+            {/* Admin Rooms */}
+            <Route
+              path="/admin/rooms"
+              element={
+                <ProtectedRoute allowedRoles={["admin"]}>
+                  <AdminRooms />
                 </ProtectedRoute>
               }
             />
