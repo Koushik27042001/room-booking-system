@@ -115,7 +115,14 @@ Base URL: `http://localhost:5000`
 - `POST /bookings`
 - `PATCH /bookings/:id`
 - `DELETE /bookings/:id`
+# docker image link
+Docker Hub:
+https://hub.docker.com/r/koushik098/room-booking-dashboard
 
+
+
+Run:
+docker run -p 3000:80 koushik098/room-booking-dashboard
 ## Notes
 - Start `npm run server` before using booking-related features.
 - Auth is client-side and intended for demo/development purposes.
